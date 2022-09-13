@@ -1,5 +1,6 @@
 import React, {Component, SyntheticEvent, useState} from 'react';
 import axios from 'axios';
+import {Redirect} from "react-router-dom";
 
 const Register = () => {
     let firstName = '';
@@ -8,23 +9,27 @@ const Register = () => {
     let password = '';
     let passwordConfirm = '';
 
-    let val = false;
+    const [state, setState] = useState(false)
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-       await axios.post('http://localhost/api/admin/register', {
-           firstName: firstName,
+       await axios.post('http://localhost:3333/api/admin/register', {
+           firstName,
            lastName,
            email,
            password,
            passwordConfirm
        });
-        val = true
+        setState( true);
     }
 
+    if(state){
+        return <Redirect to={'/login'}/>;
+    }
 
         return (
+
             <main className="form-signin">
                 <form onSubmit={submit}>
                     <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
