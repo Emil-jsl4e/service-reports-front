@@ -30,7 +30,6 @@ const Register = () => {
   }
 
 
-
   return (
     <main className="form-signin">
       <form onSubmit={submit}>
