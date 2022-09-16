@@ -1,10 +1,12 @@
 import React, {SyntheticEvent, useState} from 'react';
 import '../Login.css';
 import axios from "axios";
+import {Redirect} from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('');
+  const [redirect, setRedirect] = useState(false)
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -12,7 +14,13 @@ const Login = () => {
     await axios.post('http://localhost:3333/api/admin/login', {
       email,
       password
-    });
+    }, {withCredentials: true});
+
+    setRedirect(true)
+  }
+  
+  if (redirect) {
+    return <Redirect to={'/'}/>
   }
 
   return (
