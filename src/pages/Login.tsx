@@ -1,26 +1,30 @@
-import React, {SyntheticEvent, useState} from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import '../Login.css';
-import axios from "axios";
-import {Redirect} from "react-router-dom";
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [redirect, setRedirect] = useState(false)
+  const [redirect, setRedirect] = useState(false);
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    await axios.post('http://localhost:3333/api/admin/login', {
-      email,
-      password
-    }, {withCredentials: true});
+    await axios.post(
+      'http://localhost:3333/api/admin/login',
+      {
+        email,
+        password,
+      },
+      { withCredentials: true },
+    );
 
-    setRedirect(true)
-  }
-  
+    setRedirect(true);
+  };
+
   if (redirect) {
-    return <Redirect to={'/'}/>
+    return <Redirect to={'/'} />;
   }
 
   return (
@@ -34,7 +38,7 @@ const Login = () => {
             className="form-control"
             id="floatingInput"
             placeholder="name@example.com"
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
@@ -44,7 +48,7 @@ const Login = () => {
             className="form-control"
             id="floatingPassword"
             placeholder="Password"
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label htmlFor="floatingPassword">Password</label>
         </div>

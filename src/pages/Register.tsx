@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import ReactDOM, {render} from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 
 const Register = () => {
   let firstName = '';
@@ -26,9 +26,8 @@ const Register = () => {
   };
 
   if (state) {
-    return <Redirect to={'/login'}/>;
+    return <Redirect to={'/login'} />;
   }
-
 
   return (
     <main className="form-signin">
