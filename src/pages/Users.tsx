@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from '../components/Layout';
+import axios from "axios";
 
 const Users = () => {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    (
+        async () => {
+          const {data} = await axios.get('http://localhost:3333/api/admin/servisant')
+
+          setUser(data)
+    }
+    )()
+  })
   return (
     <Layout>
       <table className="table table-striped table-sm">
