@@ -1,39 +1,43 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import axios from "axios";
+import axios from 'axios';
+import { User } from '../models/user';
 
 const Users = () => {
-  const [user, setUser] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    (
-        async () => {
-          const {data} = await axios.get('http://localhost:3333/api/admin/servisant')
+    (async () => {
+      const { data } = await axios.get(
+        'http://localhost:3333/api/admin/servisant',
+      );
 
-          setUser(data)
-    }
-    )()
-  })
+      setUsers(data);
+    })();
+  }, []);
   return (
     <Layout>
       <table className="table table-striped table-sm">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1,001</td>
-            <td>random</td>
-            <td>data</td>
-            <td>placeholder</td>
-            <td>text</td>
-          </tr>
+          {users.map((user) => {
+            return (
+              <tr>
+                <td>{user.id}</td>
+                <td>
+                  {user.first_name} {user.last_name}
+                </td>
+                <td>{user.email}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </Layout>
