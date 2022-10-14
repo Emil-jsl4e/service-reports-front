@@ -35,12 +35,18 @@ const Users = () => {
                   {user.first_name} {user.last_name}
                 </td>
                 <td>{user.email}</td>
+                <td>
+                  <button>
+                   <a href={`users${user.id}/links`}>View</a>
+                  </button>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
     </Layout>
+
   );
 };
 
