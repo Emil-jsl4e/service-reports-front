@@ -17,7 +17,9 @@ const Users = () => {
     })();
   }, []);
   return (
+      <div>
     <Layout>
+    </Layout>
       <table className="table table-striped table-sm">
         <thead>
           <tr>
@@ -33,7 +35,7 @@ const Users = () => {
               <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>
-                  {user.first_name} {user.last_name}
+                  {user.firstName} {user.lastName}
                 </td>
                 <td>{user.email}</td>
                 <td>
@@ -46,8 +48,7 @@ const Users = () => {
           })}
         </tbody>
       </table>
-    </Layout>
-
+      </div>
   );
 };
 
