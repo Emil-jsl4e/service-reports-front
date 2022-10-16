@@ -12,7 +12,7 @@ const Layout = (props: any) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get('user', { withCredentials: true });
+        const { data } = await axios.get('http://localhost:3333/api/admin/user', { withCredentials: true });
 
         setUser(data);
       } catch (e) {
@@ -31,10 +31,9 @@ const Layout = (props: any) => {
       <div className="container-fluid">
         <div className="row">
           <Menu />
-
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div className="table-responsive">{props.chldren}</div>
-          </main>
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              <div className="table-responsive">{props.chldren}</div>
+            </main>
         </div>
       </div>
     </div>
