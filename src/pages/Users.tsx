@@ -9,10 +9,11 @@ const Users = () => {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        'http://localhost:3333/api/admin/servisant',
+        'http://localhost:3333/api/admin/servisants',
       );
 
       setUsers(data);
+      await console.log(data)
     })();
   }, []);
   return (
@@ -29,7 +30,7 @@ const Users = () => {
         <tbody>
           {users.map((user) => {
             return (
-              <tr>
+              <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>
                   {user.first_name} {user.last_name}
