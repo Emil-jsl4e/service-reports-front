@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
 
     await axios.post(
-      'http://localhost:3333/api/admin/login',
+      'login',
       {
         email,
         password,

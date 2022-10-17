@@ -15,7 +15,7 @@ const Register = () => {
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    await axios.post('http://localhost:3333/api/admin/register', {
+    await axios.post('register', {
       firstName,
       lastName,
       email,

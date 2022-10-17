@@ -12,7 +12,7 @@ const Layout = (props: any) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get('http://localhost:3333/api/admin/user', { withCredentials: true });
+        const { data } = await axios.get('user');
 
         setUser(data);
       } catch (e) {

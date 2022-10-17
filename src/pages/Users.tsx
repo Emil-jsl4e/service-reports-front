@@ -9,7 +9,7 @@ const Users = () => {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(
-        'http://localhost:3333/api/admin/servisants',
+        'servisants',
       );
 
       setUsers(data);

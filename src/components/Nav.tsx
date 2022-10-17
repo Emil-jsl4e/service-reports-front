@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Nav = (props: { user: User | null }) => {
   const logout = async () => {
-    await axios.post('http://localhost:3333/api/admin/logout');
+    await axios.post('logout');
   };
   return (
     <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
