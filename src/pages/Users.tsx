@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import axios from 'axios';
 import { User } from '../models/user';
+import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
+
 
 const Users = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -19,35 +21,34 @@ const Users = () => {
   return (
       <div>
     <Layout>
-
-      <table className="table table-striped table-sm">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>#</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {users.map((user) => {
             return (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>
+              <TableRow key={user.id}>
+                <TableCell>Test</TableCell>
+                <TableCell>
                   {user.firstName} {user.lastName}
-                </td>
-                <td>{user.email}</td>
-                <td>
+                </TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell>
                   <button>
                    <a href={`users${user.id}/links`}>View</a>
                   </button>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             );
           })}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </Layout>
       </div>
   );
