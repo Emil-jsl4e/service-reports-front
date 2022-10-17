@@ -19,7 +19,7 @@ const Users = () => {
   return (
       <div>
     <Layout>
-    </Layout>
+
       <table className="table table-striped table-sm">
         <thead>
           <tr>
@@ -48,6 +48,7 @@ const Users = () => {
           })}
         </tbody>
       </table>
+    </Layout>
       </div>
   );
 };
