@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import axios from 'axios';
 import { User } from '../models/user';
-import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
+import {Button, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 
 
 const Users = () => {
   const [users, setUsers] = useState<User[]>([]);
+  let numberOfUser = 1;
 
   useEffect(() => {
     (async () => {
@@ -34,15 +35,15 @@ const Users = () => {
           {users.map((user) => {
             return (
               <TableRow key={user.id}>
-                <TableCell>Test</TableCell>
+                <TableCell>{numberOfUser ++}</TableCell>
                 <TableCell>
                   {user.firstName} {user.lastName}
                 </TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>
-                  <button>
-                   <a href={`users${user.id}/links`}>View</a>
-                  </button>
+                  <Button variant="contained"
+                    href={`users${user.id}/links`}>View
+                  </Button>
                 </TableCell>
               </TableRow>
             );
