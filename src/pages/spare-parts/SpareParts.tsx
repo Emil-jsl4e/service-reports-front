@@ -15,7 +15,7 @@ const SpareParts = () => {
                 setSpareParts(data)
             }
         )();
-    })
+    },[])
     return (
         <Layout>
             <Table>

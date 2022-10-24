@@ -14,6 +14,11 @@ const Menu = () => {
               Users
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to={'/spareparts'} className="nav-link active" aria-current="page">
+              Spare Parts
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
