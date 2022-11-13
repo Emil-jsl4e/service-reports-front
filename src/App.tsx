@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import RedirectToUsers from "./components/RedirectToUsers";
 import Links from "./pages/Links";
 import SpareParts from "./pages/spare-parts/SpareParts"
+import SparePartsForm from "./pages/spare-parts/SparePartsForm";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path={'/register'} component={Register} />
           <Route path={'/users'} exact component={Users} />
           <Route path={'/users/:id/links'} component={Links} />
-          <Route path={'/spareparts'} component={SpareParts} />
+          <Route path={'/spareparts'} exact component={SpareParts} />
+          <Route path={'/spareparts/create'} component={SparePartsForm} />
       </BrowserRouter>
     </div>
   );
