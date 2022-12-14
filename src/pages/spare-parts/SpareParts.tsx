@@ -44,7 +44,7 @@ const SpareParts = () => {
                             <TableRow key={part.id}>
                                 <TableCell>{part.title}</TableCell>
                                 <TableCell>{part.description}</TableCell>
-                                <TableCell>
+                                <TableCell> <Button variant="contained" color="primary">Edit</Button>
                                     <Button variant="contained" color="secondary" onClick={() => del(part.id)}/>
                                 </TableCell>
                             </TableRow>
