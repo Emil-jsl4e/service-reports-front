@@ -20,6 +20,7 @@ function App() {
           <Route path={'/users/:id/links'} component={Links} />
           <Route path={'/spareparts'} exact component={SpareParts} />
           <Route path={'/spareparts/create'} component={SparePartsForm} />
+          <Route path={'/spareparts/:id/edit'} component={SparePartsForm} />
       </BrowserRouter>
     </div>
   );
