@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {SpareParts} from "../../models/spare-parts";
+import {SparePartsInter} from "../../models/spare-parts";
 import axios from "axios";
 import Layout from "../../components/Layout";
 import {Button, Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 
-const SpareParts = () => {
-    const [spareParts, setSpareParts] = useState<SpareParts[]>([]);
+export const SpareParts = () => {
+    const [spareParts, setSpareParts] = useState<SparePartsInter[]>([]);
 
     useEffect(() => {
         (
@@ -56,4 +56,3 @@ const SpareParts = () => {
     );
 };
 
-export default SpareParts;
